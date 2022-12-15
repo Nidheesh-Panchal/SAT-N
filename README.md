@@ -8,7 +8,7 @@ Run the command in the root folder: $ mkdir build && cd build && cmake ..
 A make file is created in the build folder, then run command in the build folder: $ make
 
 ## How to run
-After "make" command runs successfully, an executable name "bonus" is created in the build folder.
+After "make" command runs successfully, an executable name "satn" is created in the build folder.
 
 ## Sample input
 Sample input is present in the "test" folder
