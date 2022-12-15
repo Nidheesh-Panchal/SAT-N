@@ -1,0 +1,63 @@
+Make tree nodes for each terminal we get, and take the symbols as the root and the terminals as leaf nodes
+
+Grammar can be changed to:
+
+S -> Formula ; Assignments
+
+variable -> [a-zA-Z][a-zA-Z0-9]* (max length of 10)
+constant -> 0 | 1
+
+new, where comma is allowed to at the end of the line for assignment
+Assignments -> A1
+
+A1 -> Assignment A2 | lambda
+
+A2 -> , A1 | lambda
+
+Assignment -> variable : constant
+
+previously used, where the comma cannot be end of the line for assignment
+Assignments -> A1 | lambda
+
+A1 -> Assignment A2 
+
+A2 -> , A1 | lambda
+
+Assignment -> variable : constant
+
+
+Formula -> conjterm c1
+
+c1 -> + Formula | lambda
+
+conjterm -> term t1
+
+t1 -> * conjterm | lambda
+
+term -> constant | variable | - term | ( Formula )
+
+Need to install cmake.
+Ran the command:
+$ sudo apt-get install zlib1g-dev
+
+How to run:
+1. make a directory "build"
+2. cd to that build directory
+3. run command : $ cmake ../ -> this will keep build files in the build folder using the cmake from the root folder
+
+The dot in the end is to create check where the path to CMakeLists.txt
+
+let a*b be a formula in tree where a and b can be sub formulas
+then assign p1 to * in tree and p2, p3 to a and b respectively
+p1 <-> p2 * p3 will be written as:
+(-p1 + p2) * (-p1 + p3) * (p1 + -p2 + -p3)
+
+let a+b be a formula in tree where a and b can be sub formulas
+then assign p1 to + in tree and p2, p3 to a and b respectively
+p1 <-> p2 + p3 will be written as:
+(p1 + -p2) * (p1 + -p3) * (-p1 + p2 + p3)
+
+let -a be a formula in tree where a can be sub formula
+then assign p1 to - in tree and p2 a
+p1 <-> -p2 will be written as:
+(-p1 + -p2) * (p1 + p2)
