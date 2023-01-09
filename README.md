@@ -14,5 +14,5 @@ After "make" command runs successfully, an executable name "satn" is created in 
 Sample input is present in the "test" folder
 
 ## Other details
-Few details in the notes.txt file
+Few details in the notes.txt file.
 This code is not optimized code, its very badly written currently. It does not work for very large formulae.
