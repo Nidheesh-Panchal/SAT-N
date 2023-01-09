@@ -15,3 +15,4 @@ Sample input is present in the "test" folder
 
 ## Other details
 Few details in the notes.txt file
+This code is not optimized code, its very badly written currently. It does not work for very large formulae.
